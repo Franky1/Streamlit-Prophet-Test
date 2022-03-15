@@ -1,0 +1,14 @@
+name: env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - pip
+  - cython
+  - numpy
+  - pandas
+  - matplotlib
+  - plotly
+  - pystan==2.19.1.1
+  - pip:
+    - prophet
