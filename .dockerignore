@@ -26,8 +26,18 @@ share/python-wheels/
 *.egg
 MANIFEST
 
+# git
+.git/
+.gitignore
+.gitmodules
+.gitattributes
+
+# project specific
+LICENSE
 .vscode/
+.idea/
 *.exe
 *.md
-LICENSE
 .mypy_cache/
+*.log
+Dockerfile
