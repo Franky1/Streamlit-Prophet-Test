@@ -16,13 +16,13 @@ RUN apt-get update \
     python3-dev
 
 WORKDIR /app
-COPY test.txt requirements.txt
+COPY requirements.txt requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 EXPOSE 8501
 
-COPY *.py .
+COPY . .
 
 CMD ["streamlit", "run", "streamlit_app.py"]
 

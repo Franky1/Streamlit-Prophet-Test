@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.8-slim
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -11,23 +11,23 @@ ENV PYTHONUNBUFFERED=1 \
 # we probably need build tools?
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
-    build-essential
+    gcc \
+    g++ \
+    build-essential \
+    python3-dev
 
-# we need the requirements.txt file from prophet to be in the root of the project
-# https://github.com/facebook/prophet/blob/main/python/requirements.txt
 WORKDIR /app
-COPY . .
+COPY requirements.txt requirements.txt
 
-# first: install all required packages for pystan
-RUN pip install --no-cache-dir --upgrade cython numpy
-# second: install all required packages for prophet from their requirements.txt
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
-# third: install prophet itself
-RUN pip install --no-cache-dir --upgrade prophet
-# install streamlit
-RUN pip install --no-cache-dir --upgrade plotly streamlit
 
 EXPOSE 8501
 
-# CMD ["streamlit", "run", "--server.port", "8080", "streamlit_app.py"]
+COPY . .
+
 CMD ["streamlit", "run", "streamlit_app.py"]
+
+# docker build --progress=plain --tag prophet:latest .
+# docker run -ti -p 8501:8501 --rm prophet:latest /bin/bash
+# docker run -ti -p 8501:8501 --rm prophet:latest
+# docker run -ti -p 8501:8501 -v ${pwd}:/app --rm prophet:latest

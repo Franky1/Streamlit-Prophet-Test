@@ -10,14 +10,15 @@ import pandas as pd
 import streamlit as st
 from prophet import Prophet
 
-# Workaround to suppress stdout/stderr output from prophet/pystan
+# Workaround to suppress stdout/stderr output from pystan
 import stdout_suppressor
 
-# disable logging from prophet
+# disable verbose logging from prophet
 logging.getLogger('fbprophet').setLevel(logging.WARNING)
 
 # read data from csv file
 df = pd.read_csv('./examples/air_passengers.csv')
+
 # streamlit app starts here
 st.title("Prophet Test App in Streamlit")
 st.markdown('''This is a test app for the `prophet` time-series-forecasting library running in **Streamlit**.
@@ -29,7 +30,7 @@ More documentation about `prophet` can be found at the links below:
 ---
 ''')
 st.subheader("Input DataFrame - df.info()")
-# this workaround below is required to show the output of info() in the app
+# this workaround below is required to show the output of df.info() in the streamlit text widget
 buffer = io.StringIO()
 df.info(buf=buffer)
 st.text(buffer.getvalue())
@@ -40,7 +41,8 @@ st.table(pd.concat([df.head(5), df.tail(5)]))
 
 # create prophet model
 m = Prophet()
-# this is a workaround to suppress stdout/stderr output from prophet/pystan
+# this is a workaround to suppress stdout/stderr output from pystan
+# if you want to see the output, comment out the following line
 with stdout_suppressor.suppress_stdout_stderr():
     m.fit(df)
 
