@@ -16,14 +16,17 @@ RUN apt-get update \
     python3-dev
 
 WORKDIR /app
-COPY . .
+COPY test.txt requirements.txt
 
-RUN pip install --no-cache-dir --upgrade -r test.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 EXPOSE 8501
+
+COPY *.py .
 
 CMD ["streamlit", "run", "streamlit_app.py"]
 
 # docker build --progress=plain --tag prophet:latest --file test.dockerfile .
 # docker run -ti -p 8501:8501 --rm prophet:latest /bin/bash
 # docker run -ti -p 8501:8501 --rm prophet:latest
+# docker run -ti -p 8501:8501 -v ${pwd}:/app --rm prophet:latest

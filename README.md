@@ -1,4 +1,4 @@
-# Streamlit-Prophet-Test
+# Streamlit Prophet Test
 
 Streamlit project to test time-series-forecasting library **prophet** from facebook.
 
@@ -15,11 +15,15 @@ Streamlit project to test time-series-forecasting library **prophet** from faceb
 
 ## ToDo
 
-- [ ] Add a streamlit example of a time-series-forecasting application with `prophet`.
+- [x] Add a streamlit example of a time-series-forecasting application with `prophet`.
 - [ ] Add a solution that works on Streamlit Cloud.
 - [ ] Add alternatives for time-series-forecasting libraries.
 
 ## Usage
+
+### Streamlit Cloud
+
+### Docker local
 
 You can build the Docker image for local usage with the following command:
 
@@ -28,7 +32,7 @@ docker build --progress=plain --tag streamlitprophet:latest .
 docker run -ti -p 8501:8501 --rm streamlitprophet:latest
 ```
 
-### Lokal Docker Streamlit runtime
+#### Lokal Docker Streamlit runtime
 
 A Dockerfile is provided for local testing of the Streamlit app.
 Here some useful `docker` commands:
