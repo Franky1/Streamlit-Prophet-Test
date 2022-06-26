@@ -4,6 +4,5 @@ numpy
 pandas
 matplotlib
 plotly
-pystan==2.19.1.1
-prophet
+prophet>=1.1
 streamlit

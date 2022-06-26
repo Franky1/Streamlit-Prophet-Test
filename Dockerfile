@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.9-slim
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -31,3 +31,4 @@ CMD ["streamlit", "run", "streamlit_app.py"]
 # docker run -ti -p 8501:8501 --rm prophet:latest /bin/bash
 # docker run -ti -p 8501:8501 --rm prophet:latest
 # docker run -ti -p 8501:8501 -v ${pwd}:/app --rm prophet:latest
+# docker run -ti -p 8501:8501 -v ${pwd}:/app --rm prophet:latest /bin/bash

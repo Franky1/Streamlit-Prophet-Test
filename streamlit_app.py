@@ -25,7 +25,6 @@ st.markdown('''This is a test app for the `prophet` time-series-forecasting libr
 More documentation about `prophet` can be found at the links below:
 - `prophet` Website: <https://facebook.github.io/prophet/docs/installation.html>
 - `prophet` Github: <https://github.com/facebook/prophet>
-- `pystan` Github: <https://github.com/stan-dev/pystan>
 - This example app in Github: <https://github.com/Franky1/Streamlit-Prophet-Test>
 ---
 ''')

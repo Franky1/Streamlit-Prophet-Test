@@ -6,21 +6,17 @@ Streamlit project to test time-series-forecasting library **prophet** from faceb
 
 - `prophet` Website <https://facebook.github.io/prophet/docs/installation.html>
 - `prophet` Github <https://github.com/facebook/prophet>
-- `pystan` Github <https://github.com/stan-dev/pystan>
 
 ## Issues
 
-- Installation of `pystan` and `prophet` is currently very unconvenient and requires multiple steps of pip install?
-- Therefore installation of `pystan` and `prophet` is currently not possible on Streamlit Cloud?
-- Seems to work anyway on local Docker container and on Streamlit Cloud, despite the above mentioned issues and the fact that the installation of `pystan` and `prophet` spits out a lot of error messages during installation.
+- Installation of `pystan` and `prophet` has been tricky in the past, because of the dependencies. Since Prophet Version `1.1` the dependency from `pystan` is removed and installation of `prophet` is easy now.
 
 ## ToDo
 
 - [x] Add a streamlit example of a time-series-forecasting application with `prophet`.
 - [x] Add a solution that works on Streamlit Cloud.
-- [ ] Cleanup Github repository.
-- [ ] Add more documentation, especially about the installation issues.
-- [ ] Add alternatives for time-series-forecasting libraries.
+- [x] Cleanup Github repository.
+- [ ] Add some alternatives for time-series-forecasting libraries.
 
 ## Usage
 
@@ -62,7 +58,7 @@ docker run -ti -p 8501:8501 -v $(pwd):/app --rm streamlitprophet:latest  # linux
 docker run -ti -p 8501:8501 -v ${pwd}:/app --rm streamlitprophet:latest  # powershell
 docker run -ti -p 8501:8501 -v %cd%:/app --rm streamlitprophet:latest  # cmd.exe
 # testing in the naked python container
-docker run -ti --rm python:3.8-slim /bin/bash
+docker run -ti --rm python:3.9-slim /bin/bash
  # cleanup dangling docker images/layers
 docker builder prune --force
 docker image prune --filter="dangling=true" --force
@@ -76,6 +72,5 @@ Port `8501` is the default port for Streamlit.
 
 ## Status
 
-> Work in progress.
-> Seems to work in local Docker container and on Streamlit Cloud.
-> Last change: 16.03.2022
+> Updated prophet.
+> Last change: 26.06.2022
