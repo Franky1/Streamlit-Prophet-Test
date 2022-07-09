@@ -9,7 +9,9 @@ Streamlit project to test time-series-forecasting library **prophet** from faceb
 
 ## Issues
 
-- Installation of `pystan` and `prophet` has been tricky in the past, because of the dependencies. Since Prophet Version `1.1` the dependency from `pystan` is removed and installation of `prophet` is easy now.
+- Installation of `pystan` and `prophet` has been tricky in the past, because of the dependencies. These issues have been resolved and since `prophet` version `1.1` the dependency from `pystan` is removed and installation of `prophet` is now a simple `pip install` without any hassles.
+- Be aware that the prophet library was renamed in 2020 from `fbprophet` to `prophet`, therefore use the newer naming scheme in your python application.
+- The `prophet` library should currently work with python versions from `3.7` to `3.10` on all major architectures `win_amd64`, `linux_x86_64` and `macosx_x86_64`. Python wheels for these python versions and architectures are available on pypi.
 
 ## ToDo
 
@@ -30,6 +32,7 @@ Streamlit project to test time-series-forecasting library **prophet** from faceb
 
 ### Docker local
 
+A `Dockerfile` is provided that is based on the `python3.9-slim` image.
 You can build and run the Docker image for local usage with the following commands:
 
 ```bash
@@ -55,8 +58,8 @@ docker run -ti -p 8501:8501 --rm streamlitprophet:latest
 docker run -ti -p 8501:8501 --rm streamlitprophet:latest /bin/bash
 # run the docker container with mounted project for further development
 docker run -ti -p 8501:8501 -v $(pwd):/app --rm streamlitprophet:latest  # linux
-docker run -ti -p 8501:8501 -v ${pwd}:/app --rm streamlitprophet:latest  # powershell
-docker run -ti -p 8501:8501 -v %cd%:/app --rm streamlitprophet:latest  # cmd.exe
+docker run -ti -p 8501:8501 -v ${pwd}:/app --rm streamlitprophet:latest  # windows powershell
+docker run -ti -p 8501:8501 -v %cd%:/app --rm streamlitprophet:latest  # windows cmd.exe
 # testing in the naked python container
 docker run -ti --rm python:3.9-slim /bin/bash
  # cleanup dangling docker images/layers
@@ -73,4 +76,4 @@ Port `8501` is the default port for Streamlit.
 ## Status
 
 > Updated prophet.
-> Last change: 26.06.2022
+> Last change: 09.07.2022
