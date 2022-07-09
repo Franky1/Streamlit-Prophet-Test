@@ -1,20 +1,21 @@
 import io
 import logging
 import warnings
+from importlib_metadata import version  # python3.8+
 
 # disable FutureWarning/DeprecationWarning from prophet/pandas
 warnings.simplefilter(action='ignore', category=DeprecationWarning)
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 import pandas as pd
+import prophet
 import streamlit as st
-from prophet import Prophet
 
-# Workaround to suppress stdout/stderr output from pystan
+# Workaround to suppress stdout/stderr output from prophet/pystan
 import stdout_suppressor
 
 # disable verbose logging from prophet
-logging.getLogger('fbprophet').setLevel(logging.WARNING)
+logging.getLogger('prophet').setLevel(logging.WARNING)
 
 # read data from csv file
 df = pd.read_csv('./examples/air_passengers.csv')
@@ -29,7 +30,7 @@ More documentation about `prophet` can be found at the links below:
 ---
 ''')
 st.subheader("Prophet Version")
-st.write(f'Prophet currently used library version is {Prophet.__version__}')
+st.markdown(f'Currently used `prophet` library version is `{version("prophet")}`')
 
 st.subheader("Input DataFrame - df.info()")
 # this workaround below is required to show the output of df.info() in the streamlit text widget
@@ -42,19 +43,19 @@ st.subheader("Input DataFrame - Head and Tail")
 st.table(pd.concat([df.head(5), df.tail(5)]))
 
 # create prophet model
-m = Prophet()
+model = prophet.Prophet()
 # this is a workaround to suppress stdout/stderr output from pystan
 # if you want to see the output, comment out the following line
 with stdout_suppressor.suppress_stdout_stderr():
-    m.fit(df)
+    model.fit(df)  # fit the model
 
 # prepare the dataframe for the prediction
-future = m.make_future_dataframe(periods=365)
+future = model.make_future_dataframe(periods=365)
 st.subheader("Future DataFrame Timestamps - Tail")
 st.table(future.tail())
 
 # make the prediction
-forecast = m.predict(future)
+forecast = model.predict(future)
 df_forecast = forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper', 'trend']].tail()
 st.subheader("Future DataFrame Predictions - Tail")
 st.table(df_forecast)
@@ -62,7 +63,7 @@ st.table(df_forecast)
 st.header("Matplotlib Plots")
 st.subheader("Prophet Predictions")
 # plot the predictions
-st.pyplot(m.plot(forecast))
+st.pyplot(model.plot(forecast))
 st.subheader("Prophet Components")
 # plot the components
-st.pyplot(m.plot_components(forecast))
+st.pyplot(model.plot_components(forecast))

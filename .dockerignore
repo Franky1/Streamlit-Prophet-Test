@@ -41,4 +41,3 @@ LICENSE
 .mypy_cache/
 *.log
 Dockerfile
-scratchpad/

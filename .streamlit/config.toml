@@ -1,12 +1,5 @@
-# [theme]
-# # dark theme
-# primaryColor="#f63366"
-# backgroundColor="#0e1117"
-# secondaryBackgroundColor="#31333F"
-# textColor="#fafafa"
-# font="sans serif"
 [theme]
-# shades of purple
+# shades of purple color theme
 primaryColor="#fad000"
 backgroundColor="#28284e"
 secondaryBackgroundColor="#222145"

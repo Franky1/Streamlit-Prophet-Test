@@ -2,6 +2,8 @@
 
 Streamlit project to test time-series-forecasting library **prophet** from facebook.
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io/)
+
 ## Resources
 
 - `prophet` Website <https://facebook.github.io/prophet/docs/installation.html>
@@ -32,7 +34,7 @@ Streamlit project to test time-series-forecasting library **prophet** from faceb
 
 ### Docker local
 
-A `Dockerfile` is provided that is based on the `python3.9-slim` image.
+A `Dockerfile` is provided that is based on the `python3.10-slim` image.
 You can build and run the Docker image for local usage with the following commands:
 
 ```bash
@@ -61,7 +63,7 @@ docker run -ti -p 8501:8501 -v $(pwd):/app --rm streamlitprophet:latest  # linux
 docker run -ti -p 8501:8501 -v ${pwd}:/app --rm streamlitprophet:latest  # windows powershell
 docker run -ti -p 8501:8501 -v %cd%:/app --rm streamlitprophet:latest  # windows cmd.exe
 # testing in the naked python container
-docker run -ti --rm python:3.9-slim /bin/bash
+docker run -ti --rm python:3.10-slim /bin/bash
  # cleanup dangling docker images/layers
 docker builder prune --force
 docker image prune --filter="dangling=true" --force

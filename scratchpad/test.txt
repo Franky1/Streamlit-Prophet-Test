@@ -1,9 +1,0 @@
---prefer-binary
-cython
-numpy
-pandas
-matplotlib
-plotly
-pystan==2.19.1.1
-prophet
-streamlit

@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.10-slim
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
@@ -27,8 +27,8 @@ COPY . .
 
 CMD ["streamlit", "run", "streamlit_app.py"]
 
-# docker build --progress=plain --tag prophet:latest .
-# docker run -ti -p 8501:8501 --rm prophet:latest /bin/bash
-# docker run -ti -p 8501:8501 --rm prophet:latest
-# docker run -ti -p 8501:8501 -v ${pwd}:/app --rm prophet:latest
-# docker run -ti -p 8501:8501 -v ${pwd}:/app --rm prophet:latest /bin/bash
+# docker build --progress=plain --tag streamlitprophet:latest .
+# docker run -ti -p 8501:8501 --rm streamlitprophet:latest
+# docker run -ti -p 8501:8501 --rm streamlitprophet:latest /bin/bash
+# docker run -ti -p 8501:8501 -v ${pwd}:/app --rm streamlitprophet:latest
+# docker run -ti -p 8501:8501 -v ${pwd}:/app --rm streamlitprophet:latest /bin/bash
