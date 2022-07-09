@@ -31,6 +31,7 @@ More documentation about `prophet` can be found at the links below:
 ''')
 st.subheader("Prophet Version")
 st.markdown(f'Currently used `prophet` library version is `{version("prophet")}`')
+st.markdown('''---''')
 
 st.subheader("Input DataFrame - df.info()")
 # this workaround below is required to show the output of df.info() in the streamlit text widget

@@ -2,18 +2,19 @@
 
 Streamlit project to test time-series-forecasting library **prophet** from facebook.
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://streamlit.io/)
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://franky1-streamlit-prophet-test-streamlit-app-1ff67n.streamlitapp.com/)
 
 ## Resources
 
 - `prophet` Website <https://facebook.github.io/prophet/docs/installation.html>
 - `prophet` Github <https://github.com/facebook/prophet>
+- This example app in Github: <https://github.com/Franky1/Streamlit-Prophet-Test>
 
 ## Issues
 
 - Installation of `pystan` and `prophet` has been tricky in the past, because of the dependencies. These issues have been resolved and since `prophet` version `1.1` the dependency from `pystan` is removed and installation of `prophet` is now a simple `pip install` without any hassles.
 - Be aware that the prophet library was renamed in 2020 from `fbprophet` to `prophet`, therefore use the newer naming scheme in your python application.
-- The `prophet` library should currently work with python versions from `3.7` to `3.10` on all major architectures `win_amd64`, `linux_x86_64` and `macosx_x86_64`. Python wheels for these python versions and architectures are available on pypi.
+- The `prophet` library should currently work with python versions from `3.7` to `3.10` on all major architectures `win_amd64`, `linux_x86_64` and `macosx_x86_64`. Python wheels for these python versions and architectures are available on [pypi](<https://pypi.org/project/prophet/>) repository.
 
 ## ToDo
 
