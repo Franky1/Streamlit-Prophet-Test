@@ -28,6 +28,9 @@ More documentation about `prophet` can be found at the links below:
 - This example app in Github: <https://github.com/Franky1/Streamlit-Prophet-Test>
 ---
 ''')
+st.subheader("Prophet Version")
+st.write(f'Prophet currently used library version is {Prophet.__version__}')
+
 st.subheader("Input DataFrame - df.info()")
 # this workaround below is required to show the output of df.info() in the streamlit text widget
 buffer = io.StringIO()
